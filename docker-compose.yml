@@ -8,6 +8,7 @@ services:
       "gunicorn -w4 -b 0.0.0.0:8000 --log-level=debug --access-logfile error.log manage:app"
     volumes:
       - .:/code
+      - static-volume:/code/static
     expose:
       - "8000"
     depends_on:
@@ -35,6 +36,10 @@ services:
     ports:
       - "8000:8000"
     volumes:
+      - ./application/static/js:/code/static/js
+      - ./application/static/css:/code/static/css
+      - ./application/templates/index.html:/code/static/index.html
+      - static-volume:/code/static
       - ./config/nginx:/etc/nginx/conf.d
     depends_on:
       - app
@@ -46,3 +51,6 @@ networks:
     driver: bridge
   db_network:
     driver: bridge
+
+volumes:
+  static-volume:
