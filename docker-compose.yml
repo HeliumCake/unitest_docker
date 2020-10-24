@@ -5,8 +5,7 @@ services:
     build: .
     command: >
       bash -c
-      "python3 manage.py collectstatic --no-input &&
-      gunicorn --timeout=30 --workers=4 --bind :8000 django_app.wsgi:application"
+      "python3 manage.py runserver"
     volumes:
       - .:/code
       - static-volume:/code/static
@@ -52,3 +51,5 @@ networks:
 
 volumes:
   static-volume:
+    - ./application/static
+    - ./application/templates
