@@ -36,6 +36,8 @@ services:
     ports:
       - "8000:8000"
     volumes:
+      - ./application/static:/code/static
+      - ./application/templates:/code/static
       - static-volume:/code/static
       - ./config/nginx:/etc/nginx/conf.d
     depends_on:
