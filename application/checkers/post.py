@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-def post_params_check(title=None, content=None):
+def post_params_check(content):
     """
     发帖参数检查
     """
-    print(title)
-    print(content)
-    if isinstance(title, str) and 1 <= len(title) <= 64:
-        if isinstance(content, str) and 15 <= len(content) <= 256:
+    if not isinstance(content, dict):
+        return "title", False
+    if 'title' in content and isinstance(content['title'], str) and 1 <= len(content['title']) <= 64:
+        if 'content' in content and isinstance(content['content'], str) and 15 <= len(content['content']) <= 256:
             return "ok", True
         else:
             return "content", False
