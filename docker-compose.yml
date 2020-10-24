@@ -13,14 +13,14 @@ services:
     expose:
       - "8000"
     depends_on:
-      - db
+      - mysql
     networks:
       - web_network
       - db_network
-  db:
+  mysql:
     image: mysql:5.7
     volumes:
-      - "./mysql:/var/lib/mysql"
+      - "/home/ubuntu/mysql:/var/lib/mysql"
     ports:
       - "3306:3306"
     restart: always
@@ -35,7 +35,7 @@ services:
     restart: always
     image: nginx:latest
     ports:
-      - "8001:8000"
+      - "8000:8000"
     volumes:
       - static-volume:/code/static
       - ./config/nginx:/etc/nginx/conf.d
