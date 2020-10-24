@@ -5,7 +5,7 @@ app:
   ENV: dev
   SECRET: ^753*&FdFS#4D
   HOST: 127.0.0.1
-  PORT: 5000
+  PORT: 8000
 jwt:
   SECRET: foo
   EXPIRE_HOURS: 24
