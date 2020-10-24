@@ -19,7 +19,7 @@ services:
     image: mysql:5.7
     volumes:
       - /home/ubuntu/mysql:/var/lib/mysql
-      - ./init/mysql/init:/docker-entrypoint-initdb.d
+      - ./init/mysql:/docker-entrypoint-initdb.d
     expose:
       - "3306"
     restart: always
