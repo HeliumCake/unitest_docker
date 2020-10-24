@@ -6,6 +6,7 @@ def register_params_check(user):
     """
     注册信息检查
     """
+    print(user)
     if not ('username' in user and isinstance(user['username'], str) and 6 <= len(user['username']) <= 10):
         return 'username', False
     if 'password' in user and isinstance(user['password'], str) and 6 <= len(user['password']) <= 18:
