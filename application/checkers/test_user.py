@@ -573,6 +573,10 @@ class UserCheckTest(unittest.TestCase):
         }
         self.assertEqual(register_params_check(user), ("document_number", False))
 
+    def test_example_47(self):
+        # 类型错误
+        self.assertEqual(register_params_check(None), ("username", False))
+
 
 if __name__ == '__main__':
     unittest.main()
